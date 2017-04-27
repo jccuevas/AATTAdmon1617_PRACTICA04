@@ -226,12 +226,12 @@ public class AutenticaClient extends javax.swing.JFrame {
         }
     }
 
-    public void saveCertificate() {
+     public void saveCertificate(RSAPublicKey rsa) {
         try {
 
             // Se obtiene el motor de firma y se inicializa
             FileOutputStream keyfos = new FileOutputStream("public.key");
-            RSAPublicKey rsa = (RSAPublicKey) authCert.getPublicKey();
+            
             byte encodedKey[] = rsa.getEncoded();
 
             String rsakey = rsa.getFormat() + " " + rsa.getAlgorithm() + rsa.toString();
